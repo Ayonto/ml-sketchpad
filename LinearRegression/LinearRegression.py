@@ -43,8 +43,6 @@ class LinearRegression:
 
         for i in range(iters): 
             dj_dw, dj_db = self.gradient(X, Y, w, b)
-            print(dj_dw)
-            # print(dj_db)
             w = w - learning_rate * dj_dw
             b = b - learning_rate * dj_db
 
