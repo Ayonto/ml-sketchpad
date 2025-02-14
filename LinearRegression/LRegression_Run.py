@@ -17,10 +17,13 @@ y_train = df['income'].to_numpy()
 
 # model fitting
 model = LinearRegression()
-model.fit(x_train, y_train, iters = 100000)
+model.fit(x_train, y_train, learning_rate=0.001, iters = 1000)
 
 print(model.predict([25,2]))
 print(f"W: {model.w}")
+
+model.show_learning_curve()
+
 
 #########################
 import numpy as np
