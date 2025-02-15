@@ -61,10 +61,10 @@ class LinearRegression:
             # w = np.clip(w, -1e10, 1e10)
             # b = np.clip(b, -1e10, 1e10)
 
-            if i % 10 == 0:
+            if i % 100 == 0:
                 print(f"Iteration {i}: w = {w}, b = {b}, Cost: {self.cost_function(X, Y, w, b)}")
 
-            if i% math.ceil(iters/10) == 0:
+            if i% 10 == 0:
                 self.J.append(self.cost_function(X, Y, w, b))
 
                 self.iters.append(i)
@@ -81,5 +81,18 @@ class LinearRegression:
         plt.legend()
         plt.show()
 
+    def score(self, X_test, Y_test):
+        # Predict using the trained model
+        Y_pred = self.predict(X_test)
+
+        # Compute R² Score
+        ss_total = np.sum((Y_test - np.mean(Y_test)) ** 2)  # Total Sum of Squares
+        ss_residual = np.sum((Y_test - Y_pred) ** 2)  # Residual Sum of Squares
+
+        r2_score = 1 - (ss_residual / ss_total)
+
+        return r2_score
+
     def predict(self, X): 
-        return np.dot(self.w, X) + self.b
+        print(f"shape of X: {X.shape}")
+        return np.dot(X, self.w) + self.b
