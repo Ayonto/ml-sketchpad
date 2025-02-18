@@ -60,5 +60,4 @@ ax.set_ylabel('Experience')
 ax.set_zlabel('Salary Output (Y)')
 ax.set_title('3D Plane: Y = W * X + b')
 
-plt.legend()
 plt.show()
