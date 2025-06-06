@@ -1,10 +1,11 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
+
 class LogisticRegression: 
-    def __init__(self): 
-        self.w = None
-        self.b = None
+    def __init__(self, w = None, b = None): 
+        self.w = w
+        self.b = b
 
         self.J = []
         self.iters = []
